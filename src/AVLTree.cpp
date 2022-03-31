@@ -82,6 +82,7 @@ bool AVLTree::insert(int value)
 bool AVLTree::insert(int value, Node *& node)
 {
     if (!node) {
+        delete node;
         node = new Node(value);
         treeSize++;
     }
@@ -114,7 +115,9 @@ bool AVLTree::remove(int value, Node *& node)
 
     if (value == node->value) {
         if (!node->right) {
-            node = node->left;
+            Node * tmp = node->left;
+            delete node;
+            node = tmp;
             return true;
         }
 
