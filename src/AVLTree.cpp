@@ -32,7 +32,7 @@ void AVLTree::recalcHeight(Node * node)
     node->height = 1 + std::max(getHeight(node->left), getHeight(node->right));
 }
 
-Node * AVLTree::rotateLeft(Node * node)
+AVLTree::Node * AVLTree::rotateLeft(Node * node)
 {
     Node * tmp = node->right;
     node->right = tmp->left;
@@ -42,7 +42,7 @@ Node * AVLTree::rotateLeft(Node * node)
     return tmp;
 }
 
-Node * AVLTree::rotateRight(Node * node)
+AVLTree::Node * AVLTree::rotateRight(Node * node)
 {
     Node * tmp = node->left;
     node->left = tmp->right;
@@ -52,7 +52,7 @@ Node * AVLTree::rotateRight(Node * node)
     return tmp;
 }
 
-Node * AVLTree::balance(Node * node)
+AVLTree::Node * AVLTree::balance(Node * node)
 {
     if (!node) {
         return nullptr;
