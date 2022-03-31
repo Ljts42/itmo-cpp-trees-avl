@@ -2,20 +2,6 @@
 
 #include <vector>
 
-struct Node
-{
-    Node * left = nullptr;
-    Node * right = nullptr;
-    std::size_t height = 1;
-    int value;
-
-    Node() = default;
-    Node(int value)
-        : value(value)
-    {
-    }
-};
-
 class AVLTree
 {
 public:
@@ -31,6 +17,20 @@ public:
     ~AVLTree();
 
 private:
+    struct Node
+    {
+        Node * left = nullptr;
+        Node * right = nullptr;
+        std::size_t height = 1;
+        int value;
+
+        Node() = default;
+        Node(int value)
+            : value(value)
+        {
+        }
+    };
+
     Node * root = nullptr;
     std::size_t treeSize = 0;
 
