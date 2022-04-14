@@ -30,23 +30,26 @@ private:
         {
         }
     };
+    using NodePtr = AVLTree::Node *;
 
     Node * root = nullptr;
     std::size_t treeSize = 0;
 
-    bool search(int, Node *) const;
+    static bool search(int, Node *);
 
-    std::size_t getHeight(Node *) const;
-    void recalcHeight(Node *);
+    static std::size_t getHeight(Node *);
+    static void recalcHeight(Node *);
 
-    Node * rotateLeft(Node *);
-    Node * rotateRight(Node *);
-    Node * balance(Node *);
+    static Node * rotateLeft(Node *);
+    static Node * rotateRight(Node *);
+    static Node * balance(Node *);
 
-    bool insert(int, Node *&);
-    bool remove(int, Node *&);
+    static bool insert(int, NodePtr &);
 
-    void values(std::vector<int> &, Node *) const;
+    static int findMin(Node *);
+    static bool remove(int, NodePtr &);
 
-    void clear(Node *);
+    static void values(std::vector<int> &, Node *);
+
+    static void clear(Node *);
 };
