@@ -82,7 +82,7 @@ bool AVLTree::insert(int value)
 
 bool AVLTree::insert(int value, NodePtr & node)
 {
-    bool result = (!node);
+    bool result = (node == nullptr);
     if (result) {
         delete node;
         node = new Node(value);
